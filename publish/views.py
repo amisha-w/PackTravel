@@ -14,7 +14,30 @@ from utils import get_client
 # Create your views here.
 # from django.http import HttpResponse
 
-def publish_index(request):
+
+client = get_client()
+db = client.SEProject
+userDB  = db.userData
+
+def publish(request):
+    if request.method == "POST":
+
+        destination = request.POST["destination"]
+        date= request.POST["date"]
+        hour= request.POST["hour"]
+        min= request.POST["min"]
+        am_pm= request.POST["am_pm"]
+        userObj =  {
+            "destination": destination,
+            "date": date,
+            "hour":hour,
+            "min":min,
+            "am_pm":am_pm,
+        }
+        print("userObj",userObj)
+
+        userDB.insert_one(userObj)
+
     return render(request, 'publish/publish.html')
 
 def route(request):
@@ -22,12 +45,14 @@ def route(request):
 
 def createNewRide(request):
     if request.method == "POST":
+        print("entered here")
         form = CreateNewRide(request.POST)
         if form.is_valid():
             userObj = {
                 "destination": form.cleaned_data["destination"],
                 "rideDate": form.cleaned_data["rideDate"]
             }
+            print("dest is",userObj)
             userDB.insert_one(userObj)
             request.session['destination'] = userObj["destination"]
             request.session['rideDate'] = userObj["rideDate"]

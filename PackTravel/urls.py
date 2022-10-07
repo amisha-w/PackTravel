@@ -23,7 +23,7 @@ from publish import views as publishViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('search/', searchViews.search_index, name = 'search'),
-    path('publish/', publishViews.publish_index, name = 'publish'),
+    path('publish/', publishViews.publish, name = 'publish'),
     path('index/', userView.index, name ='index'),
     path('index/<username>',userView.index, name='index'),
     path('register/', userView.register, name='register'),
