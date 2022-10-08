@@ -1,9 +1,11 @@
 from utils import get_client
 from django.http import HttpResponse
 from user.views import userDB
+
 from django.test import SimpleTestCase
 
 class Testdb(SimpleTestCase):
+
 
 
     def test_insert_db(self):
@@ -15,8 +17,8 @@ class Testdb(SimpleTestCase):
                  "email" : "jdwyer@ncsu.edu",
                  "password" : "jd45678",
                  "phone" : "987657890"}
+
         id = userDB.insert_one(data).inserted_id
-        print("id is",id)
         return id
         # self.assertEqual(userDB.insert_one(data),True)
 
@@ -29,3 +31,4 @@ class Testdb(SimpleTestCase):
     def test_delete_db(self):
         id = self.test_insert_db()
         userDB.delete_one({'_id':id})
+
