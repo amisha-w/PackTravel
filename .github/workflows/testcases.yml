@@ -2,9 +2,9 @@ name: Testcases check
 
 on: [push]
 
-defaults:
-  run:
-    working-directory: PackTravel
+# defaults:
+#   run:
+#     working-directory: PackTravel
 
 jobs:
   build:
