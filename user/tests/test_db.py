@@ -6,8 +6,6 @@ from django.test import SimpleTestCase
 
 class Testdb(SimpleTestCase):
 
-
-
     def test_insert_db(self):
 
         data =  {"username": "John",
