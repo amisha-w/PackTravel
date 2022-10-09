@@ -14,3 +14,4 @@ jobs:
       run: |
         python manage.py test user
         python manage.py test publish
+
