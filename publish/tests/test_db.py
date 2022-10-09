@@ -1,12 +1,9 @@
 # from utils import get_client
 # from django.http import HttpResponse
-# # from publish.views import ridesDB
-# from pymongo import MongoClient
+# from publish.views import ridesDB
+#
 # from django.test import SimpleTestCase
 #
-# client = MongoClient("mongodb+srv://Aoishi:helloAOISHI2805@cluster0.zpuftvw.mongodb.net/?retryWrites=true&w=majority")
-# db = client.SEProject
-# ridesDB  = db.rides
 # class Testdb(SimpleTestCase):
 #     global id
 #
